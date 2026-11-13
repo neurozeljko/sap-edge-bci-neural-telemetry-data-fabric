@@ -206,4 +206,4 @@ All Edge DSP calculations, RMS seizure thresholds, and HIPAA PII-stripping invar
 
 ---
 
-**Lead Integration Architect:** Željko Popov
+**Integration Architect:** Željko Popov
