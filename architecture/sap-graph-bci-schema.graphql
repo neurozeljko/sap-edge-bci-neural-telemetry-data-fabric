@@ -1,0 +1,18 @@
+type sap_s4_ClinicalTrialSubject @entity {
+  pseudonymizedSubjectId: String! @key
+  trialProtocolCode: String!
+  cohortArm: String!
+  implantModel: String!
+  activeMedicationDosageMg: Float!
+  databricks_neuro_BrainWaveTelemetry: [databricks_neuro_BrainWaveTelemetry!]!
+}
+
+type databricks_neuro_BrainWaveTelemetry @federatedSource(system: "Databricks-Unity-Catalog") {
+  subjectPseudoId: String!
+  samplingRateHz: Int!
+  denoisedRmsMicrovolts: Float!
+  peakAmplitudeMicrovolts: Float!
+  clinicalRiskClassification: String!
+  dataikuSeizureProbabilityScore: Float!
+  edgeProcessedUtc: String!
+}

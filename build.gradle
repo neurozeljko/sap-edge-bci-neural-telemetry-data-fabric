@@ -1,0 +1,44 @@
+plugins {
+    id 'groovy'
+}
+
+group = 'com.sap.cpi.neuro'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    compileStub {
+        groovy {
+            srcDirs = ['src/compileStub/groovy']
+        }
+    }
+    main {
+        compileClasspath += sourceSets.compileStub.output
+    }
+    test {
+        compileClasspath += sourceSets.compileStub.output
+        runtimeClasspath += sourceSets.compileStub.output
+    }
+}
+
+dependencies {
+    compileStubImplementation 'org.codehaus.groovy:groovy-all:3.0.21'
+    implementation 'org.codehaus.groovy:groovy-all:3.0.21'
+
+    testImplementation platform('org.spockframework:spock-bom:2.3-groovy-3.0')
+    testImplementation 'org.spockframework:spock-core'
+    testImplementation 'net.bytebuddy:byte-buddy:1.14.17'
+    testImplementation 'org.objenesis:objenesis:3.3'
+}
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+        showStandardStreams = true
+        exceptionFormat "full"
+    }
+}

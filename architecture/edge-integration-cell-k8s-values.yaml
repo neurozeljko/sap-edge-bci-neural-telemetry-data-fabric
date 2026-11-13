@@ -1,0 +1,15 @@
+edgeIntegrationCell:
+  deploymentLocation: "hospital-neuro-datacenter-onprem"
+  kubernetesCluster: "rke2-clinical-edge-prod-01"
+  namespace: "sap-edge-cell-neuro"
+  workerNodes:
+    replicas: 3
+    cpuLimit: "8000m"
+    memoryLimit: "32Gi"
+  localIngress:
+    protocol: "HTTPS-mTLS"
+    endpoint: "/neuro/bci/v1/telemetry"
+    maxSamplingRateHz: 1000
+  securityBoundary:
+    phiAnonymizationEnforced: true
+    outboundWanAllowedOnlyAfterPseudonymization: true

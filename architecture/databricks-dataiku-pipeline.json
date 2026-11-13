@@ -1,0 +1,19 @@
+{
+  "neuroTelemetryDataFabric": {
+    "edgeRuntime": "SAP Edge Integration Cell (Hospital Kubernetes Node)",
+    "privacyCompliance": "HIPAA Safe Harbor & GDPR Art. 9 Salted SHA-256 Pseudonymization",
+    "lakehouseIngest": {
+      "platform": "Databricks Delta Lake (Unity Catalog)",
+      "catalog": "clinical_neuro_prod",
+      "schema": "bci_telemetry",
+      "table": "neuro_telemetry_silver",
+      "streamingFormat": "JSON / Delta Live Tables"
+    },
+    "mlScoringEngine": {
+      "platform": "Dataiku DSS",
+      "projectKey": "BCI_SEIZURE_PRECURSOR_PREDICTION",
+      "modelArchitecture": "Temporal Convolutional Network (TCN) + Gradient Boosted Trees",
+      "semanticFederationLayer": "SAP Graph (GraphQL API)"
+    }
+  }
+}
